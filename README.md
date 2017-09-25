@@ -25,7 +25,7 @@ Host 172.17.0.1
 * The Linux user that can be used by Ansible to access the host. Default is 'ubuntu' (to support AWS), however feel free to use any other user. Make sure to update the 'system_user' variable inside defaults/main.yml accordingly.
 
 ## How does it work?
-I am a firm believer of the KISS philosophy. As such I made this project as a single Ansible playbook, three roles (each containing their own tasks), and a set of default variables (defaults/main.html):
+I am a firm believer of the KISS philosophy. As such I made this project as a single Ansible playbook, three roles (each containing their own tasks), templates for Docker and Nginx, and a set of default variables (defaults/main.html):
 ```bash
 ├── ansible.cfg
 ├── defaults
@@ -65,11 +65,15 @@ This is where the magic truly happens. This Ansible playbook will Deploy & run D
 
 The following tree setup will be deployed on the Ubuntu host:
 compose-wordpress/
+```bash
 ├── docker-compose.yml
 ├── logs
 ├── nginx
 ├── wordpress
 └── wp-db-data
+```
+
+Both the Nginx configuration and the docker-compose file are built from a Jinja template by Ansible. These inherit values from global vars and user vars, and are eventually copied to the respective containers through docker volumes.
 
 ## Installation Instructions (interactive mode)
 
@@ -82,7 +86,7 @@ git clone https://github.com/jamesattard/docker-ansible-wordpress
 **2. Update docker-ansible-wordpress/hosts inventory file with your AWS instance Public IP, i.e:**
 
 ```
-[aws-wp]
+[wordpress]
 172.17.0.5
 ```
 

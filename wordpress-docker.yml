@@ -1,5 +1,5 @@
 ---
-- hosts: aws-wp
+- hosts: wordpress
 
   vars_files:
     - defaults/main.yml
