@@ -1,0 +1,6 @@
+---
+# dependency for Ansible to work on new Ubuntu host
+- name: If missing, install Python
+  raw: test -e /usr/bin/python || (apt -y update && apt install -y python)
+  changed_when: False
+- setup: # aka gather_facts: yes
