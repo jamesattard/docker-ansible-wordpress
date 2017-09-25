@@ -63,10 +63,10 @@ This is where the magic truly happens. This Ansible playbook will Deploy & run D
 * Nginx
 * MySQL (MariaDB)
 
-The following tree setup will be deployed on the Ubuntu host:
+The following directory structure will be deployed on the Ubuntu Docker host:
 
 ```bash
-├──compose-wordpress/
+├── compose-wordpress/
 ├── docker-compose.yml
 ├── logs
 ├── nginx
