@@ -29,11 +29,23 @@ I am a firm believer of the KISS philosophy. As such I made this project as a si
 ```bash
 ├── ansible.cfg
 ├── defaults
+│   └── main.yml
 ├── hosts
 ├── LICENSE
 ├── README.md
 ├── roles
-├── venv
+│   ├── docker
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── python
+│   │   └── tasks
+│   │       └── main.yml
+│   └── wordpress-docker
+│       ├── tasks
+│       │   └── main.yml
+│       └── templates
+│           ├── docker-compose.j2
+│           └── wordpress-nginx.j2
 └── wordpress-docker.yml
 ```
 
