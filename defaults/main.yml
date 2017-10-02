@@ -2,11 +2,6 @@
 system_user: ubuntu
 compose_project_dir: /home/{{ system_user }}/compose-wordpress
 
-# Rest of its variables are overridden by vars_prompt section of this playbook.
-# Which will allow to interactively specify variable values, if no action is 
-# taken during prompts, following values for those variables will be used:
-#
-# domain: foolcontrol.org
 wp_version: 4.7.5
 wp_db_name: wordpress
 wp_db_tb_pre: wp_
